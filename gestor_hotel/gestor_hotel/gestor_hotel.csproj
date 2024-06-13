@@ -115,12 +115,6 @@
     <Compile Include="dto\Reserva.cs" />
     <Compile Include="dto\ServicioDisponible.cs" />
     <Compile Include="dto\ServicioRealizado.cs" />
-    <Compile Include="FormCocina.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormCocina.Designer.cs">
-      <DependentUpon>FormCocina.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormContratarServicios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,11 +151,23 @@
     <Compile Include="FormEliminarReservas.Designer.cs">
       <DependentUpon>FormEliminarReservas.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEliminarServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEliminarServicios.Designer.cs">
+      <DependentUpon>FormEliminarServicios.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEmpleadoMovil.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormEmpleadoMovil.Designer.cs">
       <DependentUpon>FormEmpleadoMovil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFacturas.Designer.cs">
+      <DependentUpon>FormFacturas.cs</DependentUpon>
     </Compile>
     <Compile Include="FormInicioSesion.cs">
       <SubType>Form</SubType>
@@ -225,9 +231,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormCocina.resx">
-      <DependentUpon>FormCocina.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormContratarServicios.resx">
       <DependentUpon>FormContratarServicios.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,8 +249,14 @@
     <EmbeddedResource Include="FormEliminarReservas.resx">
       <DependentUpon>FormEliminarReservas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormEliminarServicios.resx">
+      <DependentUpon>FormEliminarServicios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEmpleadoMovil.resx">
       <DependentUpon>FormEmpleadoMovil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFacturas.resx">
+      <DependentUpon>FormFacturas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormInicioSesion.resx">
       <DependentUpon>FormInicioSesion.cs</DependentUpon>

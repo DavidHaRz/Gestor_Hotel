@@ -297,7 +297,7 @@
             this.btnServicios.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnServicios.Size = new System.Drawing.Size(291, 56);
             this.btnServicios.TabIndex = 11;
-            this.btnServicios.Text = "Solicitar Personal de Ayuda / Servicios";
+            this.btnServicios.Text = "Personal de Ayuda / Servicios";
             this.btnServicios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnServicios.UseVisualStyleBackColor = false;
             this.btnServicios.Click += new System.EventHandler(this.btnServicios_Click);

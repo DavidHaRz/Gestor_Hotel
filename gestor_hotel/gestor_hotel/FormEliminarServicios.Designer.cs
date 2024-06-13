@@ -1,6 +1,6 @@
 ﻿namespace gestor_hotel
 {
-    partial class FormListarServicios
+    partial class FormEliminarServicios
     {
         /// <summary>
         /// Required designer variable.
@@ -30,37 +30,41 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnContratarServicio = new System.Windows.Forms.Button();
-            this.lblTitulo = new System.Windows.Forms.Label();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.dgvServicios = new System.Windows.Forms.DataGridView();
-            this.btnCancelarServicio = new System.Windows.Forms.Button();
+            this.lblTitulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnContratarServicio
+            // btnCerrar
             // 
-            this.btnContratarServicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnContratarServicio.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnContratarServicio.FlatAppearance.BorderSize = 0;
-            this.btnContratarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnContratarServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContratarServicio.Location = new System.Drawing.Point(535, 625);
-            this.btnContratarServicio.Name = "btnContratarServicio";
-            this.btnContratarServicio.Size = new System.Drawing.Size(189, 40);
-            this.btnContratarServicio.TabIndex = 67;
-            this.btnContratarServicio.Text = "Contratar Servicio";
-            this.btnContratarServicio.UseVisualStyleBackColor = false;
-            this.btnContratarServicio.Click += new System.EventHandler(this.btnContratarServicio_Click);
+            this.btnCerrar.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Location = new System.Drawing.Point(825, 12);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(34, 29);
+            this.btnCerrar.TabIndex = 80;
+            this.btnCerrar.Text = "X";
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // lblTitulo
+            // btnEliminar
             // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(68, 30);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(311, 42);
-            this.lblTitulo.TabIndex = 63;
-            this.lblTitulo.Text = "Lista de Servicios";
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminar.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(661, 617);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(102, 40);
+            this.btnEliminar.TabIndex = 91;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // dgvServicios
             // 
@@ -94,37 +98,33 @@
             this.dgvServicios.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvServicios.RowTemplate.Height = 24;
             this.dgvServicios.Size = new System.Drawing.Size(758, 438);
-            this.dgvServicios.TabIndex = 62;
+            this.dgvServicios.TabIndex = 92;
             this.dgvServicios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServicios_CellClick);
+            this.dgvServicios.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvServicios_CellFormatting);
             // 
-            // btnCancelarServicio
+            // lblTitulo
             // 
-            this.btnCancelarServicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelarServicio.BackColor = System.Drawing.Color.Red;
-            this.btnCancelarServicio.FlatAppearance.BorderSize = 0;
-            this.btnCancelarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarServicio.Location = new System.Drawing.Point(466, 69);
-            this.btnCancelarServicio.Name = "btnCancelarServicio";
-            this.btnCancelarServicio.Size = new System.Drawing.Size(280, 40);
-            this.btnCancelarServicio.TabIndex = 68;
-            this.btnCancelarServicio.Text = "Cancelar Servicios Pendientes";
-            this.btnCancelarServicio.UseVisualStyleBackColor = false;
-            this.btnCancelarServicio.Click += new System.EventHandler(this.btnCancelarServicio_Click);
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(68, 30);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(507, 42);
+            this.lblTitulo.TabIndex = 93;
+            this.lblTitulo.Text = "Lista de Servicios Realizados";
             // 
-            // FormListarServicios
+            // FormEliminarServicios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(871, 704);
-            this.Controls.Add(this.btnCancelarServicio);
-            this.Controls.Add(this.btnContratarServicio);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.dgvServicios);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnCerrar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormListarServicios";
-            this.Text = "FormListarServicios";
+            this.Name = "FormEliminarServicios";
+            this.Text = "FormEliminarServicios";
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -133,9 +133,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnContratarServicio;
-        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView dgvServicios;
-        private System.Windows.Forms.Button btnCancelarServicio;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }

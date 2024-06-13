@@ -89,18 +89,23 @@ namespace gestor_hotel
         {
             if (servicioRealizadoSeleccionado != null)
             {
-                if (servicioRealizadoSeleccionado.hecho == null)
+                if (servicioRealizadoSeleccionado.fechaCancelacion == null)
                 {
-                    servicioRealizadoSeleccionado.hecho = DateTime.Now;
+                    if (servicioRealizadoSeleccionado.hecho == null)
+                    {
+                        servicioRealizadoSeleccionado.hecho = DateTime.Now;
 
-                    // Llamamos a la función para actualizar el servicio en la base de datos
-                    daoServiciosRealizados.ActualizarServicioRealizado(servicioRealizadoSeleccionado);
-                    // Actualizamos la tabla
-                    daoServiciosRealizados.MostrarServiciosRealizados(dgvTareas, this.id_empleado);
-                    MessageBox.Show("Servicio marcado como hecho correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Llamamos a la función para actualizar el servicio en la base de datos
+                        daoServiciosRealizados.ActualizarServicioRealizado(servicioRealizadoSeleccionado);
+                        // Actualizamos la tabla
+                        daoServiciosRealizados.MostrarServiciosRealizados(dgvTareas, this.id_empleado);
+                        MessageBox.Show("Servicio marcado como hecho correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show("Este servicio ya ha sido realizado.", "Servicio ya realizado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
-                    MessageBox.Show("Este servicio ya ha sido realizado.", "Servicio ya realizado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Este servicio está cancelado.", "Servicio cancelado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
                 MessageBox.Show("No se ha seleccionado ningún servicio realizado.", "Servicio no seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);

@@ -12,6 +12,7 @@ namespace gestor_hotel.dao
 {
     internal class DaoReservas
     {
+        DaoHabitaciones daoHabitaciones = new DaoHabitaciones();
         // Método para listar todas las reservas en un DataGridView
         public void ListarDatos(DataGridView dgvReservas)
         {
@@ -130,8 +131,6 @@ namespace gestor_hotel.dao
             }
             return funciona;
         }
-
-
         public bool ModificarReserva(int idReserva, int idCliente, int idHabitacion, DateTime fechaEntrada, DateTime fechaSalida, decimal coste, DateTime fechaReserva, string observaciones)
         {
             bool funciona = false;
@@ -171,7 +170,6 @@ namespace gestor_hotel.dao
             }
             return funciona;
         }
-
         public bool EsReservaCancelada(int idReserva)
         {
             bool cancelada = false;
@@ -207,6 +205,42 @@ namespace gestor_hotel.dao
             }
 
             return cancelada;
+        }
+        public int ObtenerUltimoIdReserva()
+        {
+            int idReserva = 0;
+            string query = "SELECT MAX(id_reserva) FROM reservas";
+
+            Conexion objetoConexion = new Conexion();
+            MySqlConnection conexion = objetoConexion.establecerConexion();
+
+            try
+            {
+                MySqlCommand myCommand = new MySqlCommand(query, conexion);
+
+                object result = myCommand.ExecuteScalar();
+                if (result != DBNull.Value)
+                {
+                    idReserva = Convert.ToInt32(result);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error de MySQL al obtener el último ID de reserva: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener el último ID de reserva: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (conexion.State != ConnectionState.Closed)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return idReserva;
         }
 
 

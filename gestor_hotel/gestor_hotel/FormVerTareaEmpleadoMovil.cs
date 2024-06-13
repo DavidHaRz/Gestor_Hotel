@@ -38,7 +38,7 @@ namespace gestor_hotel
             txtPrecio.Text = servicioRealizadoSeleccionado.precioTotalServicios.ToString() + " €";
 
             if (servicioRealizadoSeleccionado.hecho.ToString() == "")
-                txtHecho.Text = "No realizada";
+                txtHecho.Text = "No Realizada";
             else
                 txtHecho.Text = servicioRealizadoSeleccionado.hecho.ToString();
 

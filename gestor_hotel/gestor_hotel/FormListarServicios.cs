@@ -57,14 +57,23 @@ namespace gestor_hotel
             }
         }
 
+        private FormEliminarServicios formEliminarServicios;    // Declarar el formulario como variable de clase
         private void CerrarFormularios()
         {
             // Verificar si hay un formulario abierto y cerrarlo si es necesario
-            if (formContratarServicios != null && !formContratarServicios.IsDisposed)
+            if (formEliminarServicios != null && !formEliminarServicios.IsDisposed)
             {
-                formContratarServicios.Close();
-                formContratarServicios.Dispose();    // Liberar recursos asociados al formulario anterior
+                formEliminarServicios.Close();
+                formEliminarServicios.Dispose();    // Liberar recursos asociados al formulario anterior
             }
+        }
+
+        private void btnCancelarServicio_Click(object sender, EventArgs e)
+        {
+            CerrarFormularios();
+            // Pasar el objeto servicio al nuevo formulario
+            formEliminarServicios = new FormEliminarServicios();    // Crear una nueva instancia
+            formEliminarServicios.Show();
         }
     }
 }

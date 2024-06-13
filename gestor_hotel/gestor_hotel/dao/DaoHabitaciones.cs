@@ -351,7 +351,54 @@ namespace gestor_hotel.dao
             }
 
             return disponible;
+
+            }
+
+        // Comprobar si la habitación está bloqueada
+        public bool EsHabitacionBloqueada(int idHabitacion)
+        {
+            bool bloqueada = false;
+            string query = "SELECT estado FROM habitaciones WHERE id_habitacion = @idHabitacion";
+
+            Conexion objetoConexion = new Conexion();
+            MySqlConnection conexion = objetoConexion.establecerConexion();
+
+            try
+            {
+                MySqlCommand myCommand = new MySqlCommand(query, conexion);
+                myCommand.Parameters.AddWithValue("@idHabitacion", idHabitacion);
+
+                using (MySqlDataReader reader = myCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        string estado = reader["estado"].ToString();
+                        if (estado == "bloqueada")
+                        {
+                            bloqueada = true;
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error de MySQL al comprobar el estado de la habitación: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al comprobar el estado de la habitación: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (conexion.State != ConnectionState.Closed)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return bloqueada;
         }
+
 
     }
 }

@@ -71,19 +71,25 @@ namespace gestor_hotel
 
                 int idHabitacion = Convert.ToInt32(row.Cells["id_habitacion"].Value);
                 string numeroHabitacion = row.Cells["numero_habitacion"].Value.ToString();
+                string estado = row.Cells["estado"].Value.ToString();
+
                 //int numeroPersonas = Convert.ToInt32(row.Cells["numero_personas"].Value);
                 //decimal precio = Convert.ToDecimal(row.Cells["precio"].Value);
                 //string estado = row.Cells["estado"].Value.ToString();
 
-                // Mostrar un mensaje de confirmación
-                DialogResult resultado = MessageBox.Show("¿Está seguro de que desea contratar el servicio " + _servicioDisponible.nombre + " a la habitación " + numeroHabitacion + "?", "Confirmar contratación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                // Si confirmamos el servicio se aplicará a la habitacíon seleccionada
-                if (resultado == DialogResult.Yes)
+                if (estado == "ocupado")
                 {
-                    daoServiciosRealizados.ContratarServicio(_servicioDisponible.idServicioDisponible, idHabitacion, 1, (_servicioDisponible.precioServicioDisponible*1), null, null);
-                    this.Close();
-                }
+                    // Mostrar un mensaje de confirmación
+                    DialogResult resultado = MessageBox.Show("¿Está seguro de que desea contratar el servicio " + _servicioDisponible.nombre + " a la habitación " + numeroHabitacion + "?", "Confirmar contratación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    // Si confirmamos el servicio se aplicará a la habitacíon seleccionada
+                    if (resultado == DialogResult.Yes)
+                    {
+                        daoServiciosRealizados.ContratarServicio(_servicioDisponible.idServicioDisponible, idHabitacion, 1, (_servicioDisponible.precioServicioDisponible*1), null, null);
+                        this.Close();
+                    }
+                } else
+                    MessageBox.Show("La habitación debe estar ocupada.", "Habitación no válida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

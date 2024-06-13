@@ -225,7 +225,7 @@ namespace gestor_hotel
 
         private void btnCrearFacturas_Click(object sender, EventArgs e)
         {
-            openChildForm(new FormCrearReservas(id_empleado));
+            openChildForm(new FormFacturas(id_empleado));
             //Código
             hideSubMenu();
         }

@@ -18,6 +18,7 @@ namespace gestor_hotel
         DaoClientes daoClientes = new DaoClientes();
         DaoHabitaciones daoHabitaciones = new DaoHabitaciones();
         DaoReservas daoReservas = new DaoReservas();
+        DaoFacturas daoFacturas = new DaoFacturas();
         int nochesTotales;
         public FormCrearReservas()
         {
@@ -60,45 +61,54 @@ namespace gestor_hotel
                 DateTime fechaEntrada = dtpFechaEntrada.Value;
                 DateTime fechaSalida = dtpFechaSalida.Value;
 
-                if (daoHabitaciones.ComprobarDisponibilidadHabitacion(idHabitacion, fechaEntrada, fechaSalida))
+                if (daoHabitaciones.EsHabitacionBloqueada(idHabitacion))
                 {
-                    try
-                    {
-                        int idCliente = int.Parse(txtIdCliente.Text);
-                        //int idHabitacion = int.Parse(txtIdHabitacion.Text);
-                        //DateTime fechaEntrada = dtpFechaEntrada.Value;
-                        //DateTime fechaSalida = dtpFechaSalida.Value;
-                        decimal coste = decimal.Parse(txtCoste.Text);
-                        DateTime fechaReserva = DateTime.Now;
-                        string observaciones = txtObservaciones.Text;
-                        // Valor nullable para fecha_cancelacion_reserva
-                        DateTime? fechaCancelacionReserva = null;
-                        if (observaciones == null)
-                            observaciones = "";
-
-                        if (coste == 0)
-                            MessageBox.Show("No puede haber 0 noches.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-
-                        bool funciona = daoReservas.CrearReserva(idCliente, idHabitacion, fechaEntrada, fechaSalida, coste, idEmpleado, fechaReserva, fechaCancelacionReserva, observaciones);
-                        // Cambiamos el estado de la habitación
-                        daoHabitaciones.ModificarEstadoHabitacion(idHabitacion, "ocupado");
-                        if (funciona)
-                            limpiarDatos();
-                    }
-                    catch (FormatException ex)
-                    {
-                        MessageBox.Show("Recuerda calcular antes de crear. Error en el formato de los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error al crear la reserva: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("No se puede crear la reserva porque la habitación está bloqueada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("La habitación no está disponible en las fechas seleccionadas.", "Reserva no permitida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (daoHabitaciones.ComprobarDisponibilidadHabitacion(idHabitacion, fechaEntrada, fechaSalida))
+                    {
+                        try
+                        {
+                            int idCliente = int.Parse(txtIdCliente.Text);
+                            //int idHabitacion = int.Parse(txtIdHabitacion.Text);
+                            //DateTime fechaEntrada = dtpFechaEntrada.Value;
+                            //DateTime fechaSalida = dtpFechaSalida.Value;
+                            decimal coste = decimal.Parse(txtCoste.Text);
+                            DateTime fechaReserva = DateTime.Now;
+                            string observaciones = txtObservaciones.Text;
+                            // Valor nullable para fecha_cancelacion_reserva
+                            DateTime? fechaCancelacionReserva = null;
+                            if (observaciones == null)
+                                observaciones = "";
+
+                            //if (coste == 0)
+                            //    MessageBox.Show("No puede haber 0 noches.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+                            bool funciona = daoReservas.CrearReserva(idCliente, idHabitacion, fechaEntrada, fechaSalida, coste, idEmpleado, fechaReserva, fechaCancelacionReserva, observaciones);
+                            // Cambiamos el estado de la habitación
+                            daoHabitaciones.ModificarEstadoHabitacion(idHabitacion, "ocupado");
+                            daoFacturas.CrearFacturaInicial(idCliente, coste);
+                            if (funciona)
+                                limpiarDatos();
+                        }
+                        catch (FormatException ex)
+                        {
+                            MessageBox.Show("Recuerda calcular antes de crear. Error en el formato de los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error al crear la reserva: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("La habitación no está disponible en las fechas seleccionadas.", "Reserva no permitida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
+                
             }
         }
 

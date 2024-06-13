@@ -9,6 +9,7 @@ namespace gestor_hotel.dto
     public class Factura
     {
         //Implementamos métodos getter y setter.
+        public int idFactura {  get; set; }
         public int numeroFactura { get; set; }
         public DateTime fecha { get; set; }
         public int idCliente { get; set; }
@@ -17,15 +18,16 @@ namespace gestor_hotel.dto
         public int idServicioDisponible { get; set; }
         public int idReserva { get; set; }
         public string direccionFacturacion { get; set; }
-        public DateTime fechaCancelacion { get; set; }
+        public DateTime? fechaCancelacion { get; set; }  // Acepta que sea nullable
         public decimal cantidadPagada { get; set; }
         public string estado { get; set; }
         public string metodoPago { get; set; }
 
 
         //Constructor
-        public Factura(int numeroFactura, DateTime fecha, int idCliente, decimal precioTotal, int idServicioRealizado, int idServicioDisponible, int idReserva, string direccionFacturacion, DateTime fechaCancelacion, decimal cantidadPagada, string estado, string metodoPago)
+        public Factura(int idFactura, int numeroFactura, DateTime fecha, int idCliente, decimal precioTotal, int idServicioRealizado, int idServicioDisponible, int idReserva, string direccionFacturacion, DateTime? fechaCancelacion, decimal cantidadPagada, string estado, string metodoPago)
         {
+            this.idFactura = idFactura;
             this.numeroFactura = numeroFactura;
             this.fecha = fecha;
             this.idCliente = idCliente;

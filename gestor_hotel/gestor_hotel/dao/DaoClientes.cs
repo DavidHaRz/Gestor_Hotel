@@ -181,5 +181,46 @@ namespace gestor_hotel.dao
 
             return existe;
         }
+
+        public string ObtenerDireccionFacturacion(int idCliente)
+        {
+            string direccionFacturacion = string.Empty;
+            string query = "SELECT direccion_facturacion FROM clientes WHERE id_cliente = @idCliente";
+
+            Conexion objetoConexion = new Conexion();
+            MySqlConnection conexion = objetoConexion.establecerConexion();
+
+            try
+            {
+                MySqlCommand myCommand = new MySqlCommand(query, conexion);
+                myCommand.Parameters.AddWithValue("@idCliente", idCliente);
+
+                using (MySqlDataReader reader = myCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        direccionFacturacion = reader["direccion_facturacion"].ToString();
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error de MySQL al obtener la dirección de facturación: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener la dirección de facturación: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (conexion.State != ConnectionState.Closed)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return direccionFacturacion;
+        }
+
     }
 }

@@ -72,7 +72,7 @@ namespace gestor_hotel
                         formToOpen = new FormEmpleadoMovil(empleado.id_empleado, empleado.nombre, empleado.puesto);
                         break;
                     case "cocina":
-                        formToOpen = new FormCocina(empleado.id_empleado, empleado.nombre);
+                        formToOpen = new FormEmpleadoMovil(empleado.id_empleado, empleado.nombre, empleado.puesto);
                         break;
                     default:
                         MessageBox.Show("Puesto desconocido: " + empleado.puesto);

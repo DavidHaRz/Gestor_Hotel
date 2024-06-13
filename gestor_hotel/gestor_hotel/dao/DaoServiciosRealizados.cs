@@ -12,6 +12,7 @@ namespace gestor_hotel.dao
 {
     internal class DaoServiciosRealizados
     {
+        DaoFacturas daoFacturas = new DaoFacturas();
         // Método para añadir servicios a la base de datos
         public void ContratarServicio(int id_servicio_disponible, int id_habitacion, int cantidad, decimal precio_total_servicios, DateTime? hecho, DateTime? fecha_cancelacion)
         {
@@ -35,6 +36,12 @@ namespace gestor_hotel.dao
                 {
                     myCommand.ExecuteNonQuery();
                     MessageBox.Show("Servicio contratado exitosamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Obtener el id_factura correspondiente a la reserva
+                    int idFactura = daoFacturas.ObtenerIdFacturaPorReserva(id_habitacion);
+
+                    // Actualizamos los campos en la factura
+                    daoFacturas.ActualizarFactura(idFactura, ObtenerUltimoIdServicioRealizado(), id_servicio_disponible, precio_total_servicios);
 
                 }
             }
@@ -118,5 +125,152 @@ namespace gestor_hotel.dao
             }
         }
 
+        // Método para obtener todos los servicios realizados 
+        public void MostrarTodosServiciosRealizados(DataGridView dgvTareas)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                string query = "SELECT * FROM servicios_realizados";
+
+                Conexion objetoConexion = new Conexion();
+                MySqlConnection conexion = objetoConexion.establecerConexion();
+
+                MySqlCommand myCommand = new MySqlCommand(query, conexion);
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(myCommand);
+                adapter.Fill(dt);
+
+                dgvTareas.DataSource = dt; // Asigna el DataTable al DataGridView
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error de MySQL al obtener los servicios realizados: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener los servicios realizados: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Método para cancelar el servicioRealizado
+        // Método para cancelar el servicioRealizado
+        public void CancelarServicioRealizado(ServicioRealizado servicioRealizado)
+        {
+            try
+            {
+                string query = "UPDATE servicios_realizados SET fecha_cancelacion = @fechaCancelacion WHERE id_servicio_realizado = @idServicioRealizado";
+
+                Conexion objetoConexion = new Conexion();
+                MySqlConnection conexion = objetoConexion.establecerConexion();
+
+                MySqlCommand myCommand = new MySqlCommand(query, conexion);
+                myCommand.Parameters.AddWithValue("@fechaCancelacion", DateTime.Now); // Usamos la fecha y hora actual
+                myCommand.Parameters.AddWithValue("@idServicioRealizado", servicioRealizado.idServicioRealizado);
+
+                // Ejecutar la consulta si la conexión está abierta
+                if (conexion.State == ConnectionState.Open)
+                {
+                    myCommand.ExecuteNonQuery();
+                    MessageBox.Show("¡Servicio cancelado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error de MySQL al cancelar el servicio: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cancelar el servicio: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        // Método para comprobar si se puede cancelar un servicio
+        public bool PuedeCancelarServicio(ServicioRealizado servicioRealizado)
+        {
+            bool puedeCancelar = false;
+
+            string query = "SELECT hecho, fecha_cancelacion FROM servicios_realizados WHERE id_servicio_realizado = @idServicioRealizado";
+
+            Conexion objetoConexion = new Conexion();
+            MySqlConnection conexion = objetoConexion.establecerConexion();
+
+            try
+            {
+                MySqlCommand myCommand = new MySqlCommand(query, conexion);
+                myCommand.Parameters.AddWithValue("@idServicioRealizado", servicioRealizado.idServicioRealizado);
+
+                using (MySqlDataReader reader = myCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        object hecho = reader["hecho"];
+                        object fechaCancelacion = reader["fecha_cancelacion"];
+
+                        if (hecho == DBNull.Value && fechaCancelacion == DBNull.Value)
+                        {
+                            puedeCancelar = true;
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error de MySQL al comprobar si se puede cancelar el servicio: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al comprobar si se puede cancelar el servicio: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (conexion.State != ConnectionState.Closed)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return puedeCancelar;
+        }
+
+
+        public int ObtenerUltimoIdServicioRealizado()
+        {
+            int idServicioRealizado = 0;
+            string query = "SELECT MAX(id_servicio_realizado) FROM servicios_realizados";
+
+            Conexion objetoConexion = new Conexion();
+            MySqlConnection conexion = objetoConexion.establecerConexion();
+
+            try
+            {
+                MySqlCommand myCommand = new MySqlCommand(query, conexion);
+
+                object result = myCommand.ExecuteScalar();
+                if (result != DBNull.Value)
+                {
+                    idServicioRealizado = Convert.ToInt32(result);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error de MySQL al obtener el último ID de servicios_realizados: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener el último ID de servicios_realizados: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (conexion.State != ConnectionState.Closed)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return idServicioRealizado;
+        }
     }
 }

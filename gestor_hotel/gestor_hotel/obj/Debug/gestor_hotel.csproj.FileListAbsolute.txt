@@ -33,7 +33,6 @@ C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\bin\Deb
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.csproj.AssemblyReference.cache
-C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormCocina.resources
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormContratarServicios.resources
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormCrearClientes.resources
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormCrearReservas.resources
@@ -57,3 +56,5 @@ C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Deb
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.pdb
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormEmpleadoMovil.resources
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormVerTareaEmpleadoMovil.resources
+C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormEliminarServicios.resources
+C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormFacturas.resources
