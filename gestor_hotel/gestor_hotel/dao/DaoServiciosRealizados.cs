@@ -155,7 +155,6 @@ namespace gestor_hotel.dao
         }
 
         // Método para cancelar el servicioRealizado
-        // Método para cancelar el servicioRealizado
         public void CancelarServicioRealizado(ServicioRealizado servicioRealizado)
         {
             try
@@ -185,7 +184,6 @@ namespace gestor_hotel.dao
                 MessageBox.Show("Error al cancelar el servicio: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         // Método para comprobar si se puede cancelar un servicio
         public bool PuedeCancelarServicio(ServicioRealizado servicioRealizado)
@@ -235,7 +233,7 @@ namespace gestor_hotel.dao
             return puedeCancelar;
         }
 
-
+        // Método para obtener el ultimo id_servicio_realizado
         public int ObtenerUltimoIdServicioRealizado()
         {
             int idServicioRealizado = 0;
@@ -272,5 +270,60 @@ namespace gestor_hotel.dao
 
             return idServicioRealizado;
         }
+
+        // Método para obtener el servicio completo pasandole su id
+        public ServicioRealizado ObtenerServicioRealizadoPorId(int idServicioRealizado)
+        {
+            ServicioRealizado servicioRealizado = null;
+            try
+            {
+                string query = "SELECT id_servicio_realizado, id_servicio_disponible, id_habitacion, cantidad, precio_total_servicios, hecho, fecha_cancelacion " +
+                               "FROM servicios_realizados " +
+                               "WHERE id_servicio_realizado = @idServicioRealizado";
+
+                Conexion objetoConexion = new Conexion();
+                MySqlConnection conexion = objetoConexion.establecerConexion();
+
+                MySqlCommand myCommand = new MySqlCommand(query, conexion);
+                myCommand.Parameters.AddWithValue("@idServicioRealizado", idServicioRealizado);
+
+                if (conexion.State == ConnectionState.Open)
+                {
+                    using (MySqlDataReader reader = myCommand.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            int idServicioDisponible = reader.GetInt32("id_servicio_disponible");
+                            int idHabitacion = reader.GetInt32("id_habitacion");
+                            int cantidad = reader.GetInt32("cantidad");
+                            decimal precioTotalServicios = reader.GetDecimal("precio_total_servicios");
+                            DateTime? hecho = reader.IsDBNull(reader.GetOrdinal("hecho")) ? (DateTime?)null : reader.GetDateTime("hecho");
+                            DateTime? fechaCancelacion = reader.IsDBNull(reader.GetOrdinal("fecha_cancelacion")) ? (DateTime?)null : reader.GetDateTime("fecha_cancelacion");
+
+                            servicioRealizado = new ServicioRealizado(
+                                idServicioRealizado,
+                                idServicioDisponible,
+                                idHabitacion,
+                                cantidad,
+                                precioTotalServicios,
+                                hecho,
+                                fechaCancelacion
+                            );
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error de MySQL al obtener el servicio realizado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener el servicio realizado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return servicioRealizado;
+        }
+
     }
 }

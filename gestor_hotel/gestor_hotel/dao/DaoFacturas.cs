@@ -203,7 +203,107 @@ namespace gestor_hotel.dao
                 MessageBox.Show("Error al actualizar la factura: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        
+        public bool EsFacturaCancelada(int idFactura)
+        {
+            bool cancelada = false;
+            try
+            {
+                string query = "SELECT fecha_cancelacion FROM facturas WHERE id_factura = @idFactura";
 
+                Conexion objetoConexion = new Conexion();
+                MySqlConnection conexion = objetoConexion.establecerConexion();
 
+                MySqlCommand myCommand = new MySqlCommand(query, conexion);
+                myCommand.Parameters.AddWithValue("@idFactura", idFactura);
+
+                if (conexion.State == ConnectionState.Closed)
+                {
+                    conexion.Open();
+                }
+                object result = myCommand.ExecuteScalar();
+                conexion.Close();
+
+                if (result != DBNull.Value && result != null)
+                {
+                    cancelada = true;
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error de MySQL al comprobar la factura: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al comprobar la factura: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return cancelada;
+        }
+
+        // Método para cancelar una  (se pondrá la fecha actual en fechaCancelacionReserva
+        public void CancelarFactura(Factura factura)
+        {
+            try
+            {
+                // Consulta SQL para actualizar solo la fecha_cancelacion
+                string query = "UPDATE facturas SET fecha_cancelacion = @fechaCancelacion WHERE id_factura = @idFactura";
+
+                Conexion objetoConexion = new Conexion();
+                MySqlConnection conexion = objetoConexion.establecerConexion();
+
+                MySqlCommand myCommand = new MySqlCommand(query, conexion);
+                myCommand.Parameters.AddWithValue("@fechaCancelacion", DateTime.Now); // Usamos la fecha y hora actual
+                myCommand.Parameters.AddWithValue("@idFactura", factura.idFactura);
+
+                // Ejecutar la consulta si la conexión está abierta
+                if (conexion.State == ConnectionState.Open)
+                {
+                    myCommand.ExecuteNonQuery();
+                    MessageBox.Show("¡Factura cancelada con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error de MySQL al cancelar la factura: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cancelar la factura: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Método para modificar el estado y el metodo de pago
+        public void ModificarEstadoYMetodoPago(int idFactura, decimal cantidadPagada, string estado, string metodoPago)
+        {
+            try
+            {
+                string query = "UPDATE facturas SET cantidad_pagada = @cantidadPagada, estado = @estado, metodo_pago = @metodoPago WHERE id_factura = @idFactura";
+
+                Conexion objetoConexion = new Conexion();
+                MySqlConnection conexion = objetoConexion.establecerConexion();
+
+                MySqlCommand myCommand = new MySqlCommand(query, conexion);
+                myCommand.Parameters.AddWithValue("@idFactura", idFactura);
+                myCommand.Parameters.AddWithValue("@cantidadPagada", cantidadPagada);
+                myCommand.Parameters.AddWithValue("@metodoPago", metodoPago);
+                myCommand.Parameters.AddWithValue("@estado", estado);
+
+                if (conexion.State == ConnectionState.Open)
+                {
+                    myCommand.ExecuteNonQuery();
+                    //MessageBox.Show("¡Factura modificada exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error de MySQL al modificar la factura: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al modificar la factura: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
     }
 }

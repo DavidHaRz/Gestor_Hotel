@@ -34,10 +34,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
-      <HintPath>..\packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
     <Reference Include="Google.Protobuf, Version=3.25.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.25.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.13.4\lib\net461\itextsharp.xmlworker.dll</HintPath>
     </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.3.5.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Compression.LZ4.1.3.5\lib\net462\K4os.Compression.LZ4.dll</HintPath>
@@ -133,12 +139,6 @@
     <Compile Include="FormCrearReservas.Designer.cs">
       <DependentUpon>FormCrearReservas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCrearServicios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormCrearServicios.Designer.cs">
-      <DependentUpon>FormCrearServicios.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormEliminarClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +168,12 @@
     </Compile>
     <Compile Include="FormFacturas.Designer.cs">
       <DependentUpon>FormFacturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormImprimirFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormImprimirFactura.Designer.cs">
+      <DependentUpon>FormImprimirFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="FormInicioSesion.cs">
       <SubType>Form</SubType>
@@ -240,9 +246,6 @@
     <EmbeddedResource Include="FormCrearReservas.resx">
       <DependentUpon>FormCrearReservas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCrearServicios.resx">
-      <DependentUpon>FormCrearServicios.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormEliminarClientes.resx">
       <DependentUpon>FormEliminarClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -257,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormFacturas.resx">
       <DependentUpon>FormFacturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImprimirFactura.resx">
+      <DependentUpon>FormImprimirFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormInicioSesion.resx">
       <DependentUpon>FormInicioSesion.cs</DependentUpon>
@@ -341,6 +347,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SalidaFormatoMovil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Plantilla.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoFacturas.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,45 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using gestor_hotel.dto;
 
 namespace gestor_hotel.dao
 {
     internal class DaoServiciosDisponibles
     {
-        //// Método para crear un servicio
-        //public void CrearServicio(string nombre, string descripcion, decimal coste)
-        //{
-        //    try
-        //    {
-        //        string query = "INSERT INTO servicios_disponibles (nombre, descripcion, coste) " +
-        //                   "VALUES (@nombre, @descripcion, @coste)";
-
-        //        Conexion objetoConexion = new Conexion();
-        //        MySqlConnection conexion = objetoConexion.establecerConexion();
-
-
-        //        MySqlCommand myCommand = new MySqlCommand(query, conexion);
-        //        myCommand.Parameters.AddWithValue("@nombre", nombre);
-        //        myCommand.Parameters.AddWithValue("@descripcion", descripcion);
-        //        myCommand.Parameters.AddWithValue("@coste", coste);
-
-
-        //        if (conexion.State == ConnectionState.Open)
-        //        {
-        //            myCommand.ExecuteNonQuery();
-        //            MessageBox.Show("¡Servicio creado exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        }
-        //    }
-        //    catch (MySqlException ex)
-        //    {
-        //        MessageBox.Show("Error de MySQL al crear el servicio: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Error al crear el servicio: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
         // Método para listar todos los servicios en un DataGridView
         public void ListarDatos(DataGridView dgvServicios)
         {
@@ -113,5 +80,50 @@ namespace gestor_hotel.dao
             return idServicioDisponible;
         }
 
+        public ServicioDisponible ObtenerServicioDisponiblePorId(int idServicioDisponible)
+        {
+            ServicioDisponible servicioDisponible = null;
+            string query = "SELECT * FROM servicios_disponibles WHERE id_servicio_disponible = @idServicioDisponible";
+
+            Conexion objetoConexion = new Conexion();
+            MySqlConnection conexion = objetoConexion.establecerConexion();
+
+
+            try
+            {
+                MySqlCommand myCommand = new MySqlCommand(query, conexion);
+                myCommand.Parameters.AddWithValue("@idServicioDisponible", idServicioDisponible);
+
+                using (MySqlDataReader reader = myCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        int id = reader.GetInt32("id_servicio_disponible");
+                        string nombre = reader.GetString("nombre");
+                        string descripcion = reader.GetString("descripcion");
+                        decimal precioServicioDisponible = reader.GetDecimal("precio_servicio_disponible");
+
+                        servicioDisponible = new ServicioDisponible(id, nombre, descripcion, precioServicioDisponible);
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error de MySQL al obtener el servicio disponible: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener la obtener el servicio disponible: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (conexion.State != ConnectionState.Closed)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return servicioDisponible;
+        }
     }
 }

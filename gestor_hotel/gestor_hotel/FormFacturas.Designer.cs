@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFacturas));
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.dgvFacturas = new System.Windows.Forms.DataGridView();
@@ -40,7 +41,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCancelar.BackColor = System.Drawing.Color.SkyBlue;
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -55,7 +56,7 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnActualizar.BackColor = System.Drawing.Color.SkyBlue;
             this.btnActualizar.FlatAppearance.BorderSize = 0;
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -102,6 +103,7 @@
             this.dgvFacturas.Size = new System.Drawing.Size(758, 438);
             this.dgvFacturas.TabIndex = 144;
             this.dgvFacturas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFacturas_CellClick);
+            this.dgvFacturas.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvFacturas_CellFormatting);
             // 
             // lblTitulo
             // 
@@ -126,7 +128,7 @@
             this.btnPrepararFactura.TabIndex = 142;
             this.btnPrepararFactura.Text = "Preparar Factura";
             this.btnPrepararFactura.UseVisualStyleBackColor = false;
-            this.btnPrepararFactura.Click += new System.EventHandler(this.btnImprimir_Click);
+            this.btnPrepararFactura.Click += new System.EventHandler(this.btnPrepararFactura_Click);
             // 
             // FormFacturas
             // 
@@ -140,6 +142,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnPrepararFactura);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormFacturas";
             this.Text = "FormFacturas";
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).EndInit();

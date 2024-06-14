@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormModificarReservas));
             this.lblNochesTotales = new System.Windows.Forms.Label();
             this.dtpFechaSalida = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaEntrada = new System.Windows.Forms.DateTimePicker();
@@ -143,6 +144,7 @@
             // 
             // txtCoste
             // 
+            this.txtCoste.Enabled = false;
             this.txtCoste.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCoste.Location = new System.Drawing.Point(136, 440);
             this.txtCoste.Name = "txtCoste";
@@ -284,6 +286,7 @@
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormModificarReservas";
             this.Text = "FormModificarReservas";
             this.ResumeLayout(false);

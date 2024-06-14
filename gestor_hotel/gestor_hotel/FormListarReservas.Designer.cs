@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormListarReservas));
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -94,6 +95,7 @@
             this.txtBuscarReservas.Size = new System.Drawing.Size(409, 38);
             this.txtBuscarReservas.TabIndex = 64;
             this.txtBuscarReservas.Tag = "";
+            this.txtBuscarReservas.Visible = false;
             // 
             // lblTitulo
             // 
@@ -154,6 +156,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.dgvReservas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormListarReservas";
             this.Text = "FormListarReservas";
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservas)).EndInit();

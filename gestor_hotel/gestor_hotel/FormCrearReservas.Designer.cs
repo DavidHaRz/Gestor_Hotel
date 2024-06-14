@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCrearReservas));
             this.btnCrear = new System.Windows.Forms.Button();
             this.lblNochesTotales = new System.Windows.Forms.Label();
             this.dtpFechaSalida = new System.Windows.Forms.DateTimePicker();
@@ -228,6 +229,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnCrear);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCrearReservas";
             this.Text = "FormCrearReservas";
             this.ResumeLayout(false);

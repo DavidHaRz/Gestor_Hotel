@@ -22,8 +22,9 @@ namespace gestor_hotel.dto
 
 
         //Constructor con parámetros
-        public Cliente(string nombre, string apellidos, string dni, string telefono, string email, string direccionFacturacion, string observaciones)
+        public Cliente(int idCliente, string nombre, string apellidos, string dni, string telefono, string email, string direccionFacturacion, string observaciones)
         {
+            this.idCliente = idCliente;
             this.nombre = nombre;
             this.apellidos = apellidos;
             this.dni = dni;
@@ -33,10 +34,15 @@ namespace gestor_hotel.dto
             this.observaciones = observaciones;
         }
 
-        // Constructor para poder comprobar que el cliente existe
-        public Cliente(int idCliente)
+        public Cliente(string nombre, string apellidos, string dni, string telefono, string email, string direccionFacturacion, string observaciones)
         {
-            this.idCliente = idCliente;
+            this.nombre = nombre;
+            this.apellidos = apellidos;
+            this.dni = dni;
+            this.telefono = telefono;
+            this.email = email;
+            this.direccionFacturacion = direccionFacturacion;
+            this.observaciones = observaciones;
         }
     }
 }

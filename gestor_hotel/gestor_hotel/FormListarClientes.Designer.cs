@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormListarClientes));
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txtBuscarCliente = new System.Windows.Forms.TextBox();
@@ -94,6 +95,7 @@
             this.txtBuscarCliente.Size = new System.Drawing.Size(409, 38);
             this.txtBuscarCliente.TabIndex = 2;
             this.txtBuscarCliente.Tag = "";
+            this.txtBuscarCliente.Visible = false;
             // 
             // btnModificar
             // 
@@ -153,6 +155,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.dgvClientes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormListarClientes";
             this.Text = "FormListarClientes";
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();

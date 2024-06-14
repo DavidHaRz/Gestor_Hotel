@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormListarHabitaciones));
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.txtBuscarHabitacion = new System.Windows.Forms.TextBox();
@@ -78,6 +79,7 @@
             this.txtBuscarHabitacion.Size = new System.Drawing.Size(409, 38);
             this.txtBuscarHabitacion.TabIndex = 64;
             this.txtBuscarHabitacion.Tag = "";
+            this.txtBuscarHabitacion.Visible = false;
             // 
             // lblTitulo
             // 
@@ -137,6 +139,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.dgvHabitaciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormListarHabitaciones";
             this.Text = "FormListarHabitaciones";
             ((System.ComponentModel.ISupportInitialize)(this.dgvHabitaciones)).EndInit();

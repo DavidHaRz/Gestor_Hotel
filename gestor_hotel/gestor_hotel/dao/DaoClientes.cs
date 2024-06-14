@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using gestor_hotel.dto;
+using System.Collections;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Net;
 
 namespace gestor_hotel.dao
 {
@@ -84,7 +87,6 @@ namespace gestor_hotel.dao
             }
         }
 
-
         // Método para eliminar un cliente por DNI
         public void EliminarCliente(string dni)
         {
@@ -113,7 +115,6 @@ namespace gestor_hotel.dao
                 MessageBox.Show("Error al eliminar el cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         // Método para modificar la información de un cliente
         public void ModificarCliente(string nombre, string apellidos, string dni, string telefono, string email, string direccionFacturacion, string observaciones)
@@ -220,6 +221,57 @@ namespace gestor_hotel.dao
             }
 
             return direccionFacturacion;
+        }
+
+        public Cliente ObtenerClientePorId(int idCliente)
+        {
+            Cliente cliente = null;
+            string query = "SELECT * FROM clientes WHERE id_cliente = @idCliente";
+
+            Conexion objetoConexion = new Conexion();
+            MySqlConnection conexion = objetoConexion.establecerConexion();
+
+
+            try
+            {
+                MySqlCommand myCommand = new MySqlCommand(query, conexion);
+                myCommand.Parameters.AddWithValue("@idCliente", idCliente);
+
+                using (MySqlDataReader reader = myCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        int id = reader.GetInt32("id_cliente");
+                        string nombre = reader.GetString("nombre");
+                        string apellidos = reader.GetString("apellidos");
+                        string dni = reader.GetString("dni");
+                        string telefono = reader.IsDBNull(reader.GetOrdinal("telefono")) ? null : reader.GetString("telefono");
+                        string email = reader.GetString("email");
+                        string direccionFacturacion = reader.IsDBNull(reader.GetOrdinal("direccion_facturacion")) ? null : reader.GetString("direccion_facturacion");
+                        string observaciones = reader.IsDBNull(reader.GetOrdinal("observaciones")) ? null : reader.GetString("observaciones");
+
+                        cliente = new Cliente(id, nombre, apellidos, dni, telefono, email, direccionFacturacion, observaciones);
+
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error de MySQL al obtener el cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener la obtener el cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (conexion.State != ConnectionState.Closed)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return cliente;
         }
 
     }

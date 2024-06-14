@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEliminarServicios));
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.dgvServicios = new System.Windows.Forms.DataGridView();
@@ -89,7 +90,7 @@
             this.dgvServicios.ColumnHeadersHeight = 30;
             this.dgvServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvServicios.EnableHeadersVisualStyles = false;
-            this.dgvServicios.Location = new System.Drawing.Point(53, 155);
+            this.dgvServicios.Location = new System.Drawing.Point(53, 130);
             this.dgvServicios.Name = "dgvServicios";
             this.dgvServicios.ReadOnly = true;
             this.dgvServicios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -97,7 +98,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvServicios.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvServicios.RowTemplate.Height = 24;
-            this.dgvServicios.Size = new System.Drawing.Size(758, 438);
+            this.dgvServicios.Size = new System.Drawing.Size(758, 463);
             this.dgvServicios.TabIndex = 92;
             this.dgvServicios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServicios_CellClick);
             this.dgvServicios.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvServicios_CellFormatting);
@@ -123,6 +124,7 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnCerrar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormEliminarServicios";
             this.Text = "FormEliminarServicios";
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).EndInit();

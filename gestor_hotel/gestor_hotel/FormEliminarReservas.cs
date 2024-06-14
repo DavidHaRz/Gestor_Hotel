@@ -59,7 +59,7 @@ namespace gestor_hotel
             // Mostrar un mensaje de confirmación
             DialogResult resultado = MessageBox.Show("¿Está seguro de que desea cancelar esta reserva?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            // Si confirmamos la reserva será cancelada
+            // Si confirmamos la reserva, será cancelada
             if (resultado == DialogResult.Yes)
             {
                 daoReservas.CancelarReserva(_reserva);

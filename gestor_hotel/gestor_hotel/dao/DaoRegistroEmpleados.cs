@@ -59,7 +59,6 @@ namespace gestor_hotel.dao
             }
         }
 
-
         public void CerrarSesionEmpleado(int idEmpleado)
         {
             DateTime fechaHoy = DateTime.Now; // Incluye la fecha y la hora actuales

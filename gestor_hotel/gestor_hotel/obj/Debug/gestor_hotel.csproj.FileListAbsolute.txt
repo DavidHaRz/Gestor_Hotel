@@ -3,6 +3,8 @@ C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\bin\Deb
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\bin\Debug\gestor_hotel.pdb
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\bin\Debug\BouncyCastle.Cryptography.dll
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\bin\Debug\Google.Protobuf.dll
+C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\bin\Debug\itextsharp.dll
+C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\bin\Debug\itextsharp.xmlworker.dll
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\bin\Debug\K4os.Compression.LZ4.dll
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\bin\Debug\K4os.Compression.LZ4.Streams.dll
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\bin\Debug\K4os.Hash.xxHash.dll
@@ -20,6 +22,7 @@ C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\bin\Deb
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\bin\Debug\BouncyCastle.Cryptography.xml
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\bin\Debug\Google.Protobuf.pdb
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\bin\Debug\Google.Protobuf.xml
+C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\bin\Debug\itextsharp.xml
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\bin\Debug\K4os.Compression.LZ4.xml
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\bin\Debug\K4os.Compression.LZ4.Streams.xml
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\bin\Debug\K4os.Hash.xxHash.xml
@@ -36,9 +39,12 @@ C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Deb
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormContratarServicios.resources
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormCrearClientes.resources
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormCrearReservas.resources
-C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormCrearServicios.resources
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormEliminarClientes.resources
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormEliminarReservas.resources
+C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormEliminarServicios.resources
+C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormEmpleadoMovil.resources
+C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormFacturas.resources
+C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormImprimirFactura.resources
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormInicioSesion.resources
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormListarClientes.resources
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormListarHabitaciones.resources
@@ -48,13 +54,10 @@ C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Deb
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormModificarHabitaciones.resources
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormModificarReservas.resources
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormRecepcion.resources
+C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormVerTareaEmpleadoMovil.resources
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.Properties.Resources.resources
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.csproj.GenerateResource.cache
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.csproj.CoreCompileInputs.cache
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.csproj.CopyComplete
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.exe
 C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.pdb
-C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormEmpleadoMovil.resources
-C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormVerTareaEmpleadoMovil.resources
-C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormEliminarServicios.resources
-C:\Users\David\Documents\ProyectosVisualStudio\gestor_hotel\gestor_hotel\obj\Debug\gestor_hotel.FormFacturas.resources

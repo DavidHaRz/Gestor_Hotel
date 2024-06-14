@@ -7,47 +7,12 @@ using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using System.Data;
 using MySqlX.XDevAPI.Common;
+using gestor_hotel.dto;
 
 namespace gestor_hotel.dao
 {
     internal class DaoHabitaciones
     {
-
-        // Método para listar todas las habitaciones en un DataGridView
-        public void ListarDatos(DataGridView dgvHabitaciones)
-        {
-            string query = "SELECT * FROM habitaciones";
-
-            try
-            {
-                Conexion objetoConexion = new Conexion();
-                MySqlConnection conexion = objetoConexion.establecerConexion();
-
-                MySqlCommand myCommand = new MySqlCommand(query, conexion);
-                MySqlDataAdapter adapter = new MySqlDataAdapter();
-                adapter.SelectCommand = myCommand;
-                DataTable dataTable = new DataTable();
-
-                adapter.Fill(dataTable);
-
-                dgvHabitaciones.DataSource = dataTable;
-
-                dgvHabitaciones.ReadOnly = true;
-                dgvHabitaciones.AllowUserToAddRows = false;
-                dgvHabitaciones.AllowUserToDeleteRows = false;
-
-                conexion.Close();
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Error de MySQL al listar las habitaciones: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al listar las habitaciones: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         // Comprobación de que la habitación existe
         public bool HabitacionExiste(int idHabitacion)
         {
@@ -399,6 +364,51 @@ namespace gestor_hotel.dao
             return bloqueada;
         }
 
+        public Habitacion ObtenerHabitacionPorId(int idHabitacion)
+        {
+            Habitacion habitacion = null;
+            string query = "SELECT * FROM habitaciones WHERE id_habitacion = @idHabitacion";
 
+            Conexion objetoConexion = new Conexion();
+            MySqlConnection conexion = objetoConexion.establecerConexion();
+
+
+            try
+            {
+                MySqlCommand myCommand = new MySqlCommand(query, conexion);
+                myCommand.Parameters.AddWithValue("@idHabitacion", idHabitacion);
+
+                using (MySqlDataReader reader = myCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        int id = reader.GetInt32("id_habitacion");
+                        string numeroHabitacion = reader.GetString("numero_habitacion");
+                        int numeroPersonas = reader.GetInt32("numero_personas");
+                        decimal precio = reader.GetDecimal("precio");
+                        string estado = reader.GetString("estado");
+
+                        habitacion = new Habitacion(id, numeroHabitacion, numeroPersonas, precio, estado);
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error de MySQL al obtener la habitacion: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener la obtener la habitacion: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (conexion.State != ConnectionState.Closed)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return habitacion;
+        }
     }
 }

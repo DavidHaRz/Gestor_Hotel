@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRecepcion));
             this.panBarraTitulo = new System.Windows.Forms.Panel();
             this.imgRestaurar = new System.Windows.Forms.PictureBox();
             this.imgMinimizar = new System.Windows.Forms.PictureBox();
@@ -36,10 +37,9 @@
             this.panMenuLateral = new System.Windows.Forms.Panel();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.panSubmenuFacturas = new System.Windows.Forms.Panel();
-            this.btnModificarFacturas = new System.Windows.Forms.Button();
-            this.btnEliminarFacturas = new System.Windows.Forms.Button();
+            this.btnCancelarFactura = new System.Windows.Forms.Button();
+            this.btnPrepararFactura = new System.Windows.Forms.Button();
             this.btnListarFacturas = new System.Windows.Forms.Button();
-            this.btnCrearFacturas = new System.Windows.Forms.Button();
             this.btnFacturas = new System.Windows.Forms.Button();
             this.btnServicios = new System.Windows.Forms.Button();
             this.btnHabitaciones = new System.Windows.Forms.Button();
@@ -181,10 +181,9 @@
             // panSubmenuFacturas
             // 
             this.panSubmenuFacturas.BackColor = System.Drawing.Color.DodgerBlue;
-            this.panSubmenuFacturas.Controls.Add(this.btnModificarFacturas);
-            this.panSubmenuFacturas.Controls.Add(this.btnEliminarFacturas);
+            this.panSubmenuFacturas.Controls.Add(this.btnCancelarFactura);
+            this.panSubmenuFacturas.Controls.Add(this.btnPrepararFactura);
             this.panSubmenuFacturas.Controls.Add(this.btnListarFacturas);
-            this.panSubmenuFacturas.Controls.Add(this.btnCrearFacturas);
             this.panSubmenuFacturas.Dock = System.Windows.Forms.DockStyle.Top;
             this.panSubmenuFacturas.Location = new System.Drawing.Point(0, 835);
             this.panSubmenuFacturas.Margin = new System.Windows.Forms.Padding(4);
@@ -192,43 +191,43 @@
             this.panSubmenuFacturas.Size = new System.Drawing.Size(291, 215);
             this.panSubmenuFacturas.TabIndex = 13;
             // 
-            // btnModificarFacturas
+            // btnCancelarFactura
             // 
-            this.btnModificarFacturas.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnModificarFacturas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnModificarFacturas.Enabled = false;
-            this.btnModificarFacturas.FlatAppearance.BorderSize = 0;
-            this.btnModificarFacturas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificarFacturas.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.btnModificarFacturas.Location = new System.Drawing.Point(0, 150);
-            this.btnModificarFacturas.Margin = new System.Windows.Forms.Padding(4);
-            this.btnModificarFacturas.Name = "btnModificarFacturas";
-            this.btnModificarFacturas.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.btnModificarFacturas.Size = new System.Drawing.Size(291, 50);
-            this.btnModificarFacturas.TabIndex = 3;
-            this.btnModificarFacturas.Text = "Modificar";
-            this.btnModificarFacturas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificarFacturas.UseVisualStyleBackColor = false;
-            this.btnModificarFacturas.Click += new System.EventHandler(this.btnModificarFacturas_Click);
+            this.btnCancelarFactura.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnCancelarFactura.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCancelarFactura.Enabled = false;
+            this.btnCancelarFactura.FlatAppearance.BorderSize = 0;
+            this.btnCancelarFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarFactura.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.btnCancelarFactura.Location = new System.Drawing.Point(0, 100);
+            this.btnCancelarFactura.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelarFactura.Name = "btnCancelarFactura";
+            this.btnCancelarFactura.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.btnCancelarFactura.Size = new System.Drawing.Size(291, 50);
+            this.btnCancelarFactura.TabIndex = 3;
+            this.btnCancelarFactura.Text = "Cancelar Factura";
+            this.btnCancelarFactura.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelarFactura.UseVisualStyleBackColor = false;
+            this.btnCancelarFactura.Click += new System.EventHandler(this.btnCancelarFactura_Click);
             // 
-            // btnEliminarFacturas
+            // btnPrepararFactura
             // 
-            this.btnEliminarFacturas.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnEliminarFacturas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEliminarFacturas.Enabled = false;
-            this.btnEliminarFacturas.FlatAppearance.BorderSize = 0;
-            this.btnEliminarFacturas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarFacturas.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.btnEliminarFacturas.Location = new System.Drawing.Point(0, 100);
-            this.btnEliminarFacturas.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEliminarFacturas.Name = "btnEliminarFacturas";
-            this.btnEliminarFacturas.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
-            this.btnEliminarFacturas.Size = new System.Drawing.Size(291, 50);
-            this.btnEliminarFacturas.TabIndex = 2;
-            this.btnEliminarFacturas.Text = "Eliminar";
-            this.btnEliminarFacturas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminarFacturas.UseVisualStyleBackColor = false;
-            this.btnEliminarFacturas.Click += new System.EventHandler(this.btnEliminarFacturas_Click);
+            this.btnPrepararFactura.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnPrepararFactura.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPrepararFactura.Enabled = false;
+            this.btnPrepararFactura.FlatAppearance.BorderSize = 0;
+            this.btnPrepararFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrepararFactura.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.btnPrepararFactura.Location = new System.Drawing.Point(0, 50);
+            this.btnPrepararFactura.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrepararFactura.Name = "btnPrepararFactura";
+            this.btnPrepararFactura.Padding = new System.Windows.Forms.Padding(60, 0, 0, 0);
+            this.btnPrepararFactura.Size = new System.Drawing.Size(291, 50);
+            this.btnPrepararFactura.TabIndex = 2;
+            this.btnPrepararFactura.Text = "Preparar Factura";
+            this.btnPrepararFactura.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrepararFactura.UseVisualStyleBackColor = false;
+            this.btnPrepararFactura.Click += new System.EventHandler(this.btnPrepararFactura_Click);
             // 
             // btnListarFacturas
             // 
@@ -237,7 +236,7 @@
             this.btnListarFacturas.FlatAppearance.BorderSize = 0;
             this.btnListarFacturas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListarFacturas.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.btnListarFacturas.Location = new System.Drawing.Point(0, 50);
+            this.btnListarFacturas.Location = new System.Drawing.Point(0, 0);
             this.btnListarFacturas.Margin = new System.Windows.Forms.Padding(4);
             this.btnListarFacturas.Name = "btnListarFacturas";
             this.btnListarFacturas.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
@@ -247,24 +246,6 @@
             this.btnListarFacturas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnListarFacturas.UseVisualStyleBackColor = false;
             this.btnListarFacturas.Click += new System.EventHandler(this.btnListarFacturas_Click);
-            // 
-            // btnCrearFacturas
-            // 
-            this.btnCrearFacturas.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnCrearFacturas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCrearFacturas.FlatAppearance.BorderSize = 0;
-            this.btnCrearFacturas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCrearFacturas.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.btnCrearFacturas.Location = new System.Drawing.Point(0, 0);
-            this.btnCrearFacturas.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCrearFacturas.Name = "btnCrearFacturas";
-            this.btnCrearFacturas.Padding = new System.Windows.Forms.Padding(44, 0, 0, 0);
-            this.btnCrearFacturas.Size = new System.Drawing.Size(291, 50);
-            this.btnCrearFacturas.TabIndex = 0;
-            this.btnCrearFacturas.Text = "Crear";
-            this.btnCrearFacturas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCrearFacturas.UseVisualStyleBackColor = false;
-            this.btnCrearFacturas.Click += new System.EventHandler(this.btnCrearFacturas_Click);
             // 
             // btnFacturas
             // 
@@ -597,6 +578,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1183, 738);
             this.Name = "FormRecepcion";
@@ -647,10 +629,9 @@
         private System.Windows.Forms.PictureBox imgLogoSecundario;
         private System.Windows.Forms.Label lblEmpleado;
         private System.Windows.Forms.Panel panSubmenuFacturas;
-        private System.Windows.Forms.Button btnModificarFacturas;
-        private System.Windows.Forms.Button btnEliminarFacturas;
+        private System.Windows.Forms.Button btnCancelarFactura;
+        private System.Windows.Forms.Button btnPrepararFactura;
         private System.Windows.Forms.Button btnListarFacturas;
-        private System.Windows.Forms.Button btnCrearFacturas;
         private System.Windows.Forms.Button btnFacturas;
         private System.Windows.Forms.Button btnServicios;
         private System.Windows.Forms.Button btnCerrarSesion;

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Factura</title>
+    <style>
+        table.border {
+            border-collapse: collapse;
+        }
+
+            table.border th {
+                padding: 5px;
+                border: 1px solid black;
+            }
+
+            table.border td {
+                padding: 5px;
+                border: 1px solid black;
+            }
+    </style>
+</head>
+<body>
+    <table style="width:100%">
+        <tr>
+            <td style="width:20%"></td>
+            <td style="width:60%" align="center" valign="top">
+                <table>
+                    <tr><td align="center"><h4 style="margin:0px">HOTEL OASIS</h4></td></tr>
+                    <tr><td align="center">Direccion: Av. Las Aguilas 123 </td></tr>
+                    <tr><td align="center">Telefono: 999-99-99-99</td></tr>
+                </table>
+            </td>
+            <td style="width:20%">
+                <table class="border" style="width:100%">
+                    <tr><td align="center" style="background-color:#D8D8D8">@FECHAHOY</td></tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr><td colspan="3" height="20"></td></tr>
+
+        <tr>
+            <td colspan="2">
+                <table style="width:100%">
+                    <tr>
+                        <td colspan="1" style="width:20%;border-bottom:1px solid black">Nombre:</td>
+                        <td colspan="3" style="width:80%;border-bottom:1px solid black">@NOMBRECLIENTE</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" style="width:20%;border-bottom:1px solid black">Apellidos:</td>
+                        <td colspan="3" style="width:80%;border-bottom:1px solid black">@APELLIDOSCLIENTE</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" style="width:20%;border-bottom:1px solid black">Dirección Facturación:</td>
+                        <td colspan="3" style="width:80%;border-bottom:1px solid black">@DIRECCIONFACTURACION</td>
+                    </tr>
+                </table>
+                <!--<table style="width:100%">
+                    <tr>
+                        <td style="width:20%">Documento:</td>
+                        <td style="width:30%;border-bottom:1px solid black">@DOCUMENTO</td>
+                        <td style="width:10%">Fecha:</td>
+                        <td style="width:40%;border-bottom:1px solid black">@FECHA</td>
+                    </tr>
+                </table>-->
+            </td>
+            <td></td>
+        </tr>
+
+        <tr><td colspan="3" height="40"></td></tr>
+        <tr>
+            <td colspan="3">
+                <table class="border" style="width:100%;">
+                    <thead>
+                        <tr style="background-color:#D8D8D8">
+                            <th>Fecha Entrada</th>
+                            <th>Fecha Salida</th>
+                            <th>Número Habitación</th>
+                            <th>Coste</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@FECHAENTRADA</td>
+                            <td>@FECHASALIDA</td>
+                            <td>@NUMEROHABITACION</td>
+                            <td>@COSTEHABITACION</td>
+                        </tr>
+                        <!--@FILAS-->
+                        <!--<tr>
+                            <td style="border: 0px !important"></td>
+                            <td style="border: 0px !important"></td>
+                            <td align="right">Total:</td>
+                            <td>@TOTAL</td>
+                        </tr>-->
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        
+        <tr><td colspan="3" height="40"></td></tr>
+        <tr>
+            <td colspan="3">
+                <table class="border" style="width:100%;">
+                    <thead>
+                        <tr style="background-color:#D8D8D8">
+                            <th>Servicio</th>
+                            <th>Descripción del Servicio</th>
+                            <th>Precio Servicio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@NOMBRESERVICIO</td>
+                            <td>@DESCRIPCIONSERVICIO</td>
+                            <td>@PRECIOSERVICIO</td>
+                        </tr>
+                        <!--@FILAS-->
+                        <!--<tr>
+                            <td style="border: 0px !important"></td>
+                            <td style="border: 0px !important"></td>
+                            <td align="right">Total:</td>
+                            <td>@TOTAL</td>
+                        </tr>-->
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+	
+	 <div class="spacer" style="height: 40px;"></div>
+	
+    <table style="width:100%" height="40">
+                    <tr>
+                        <td colspan="1" style="width:20%;border-bottom:1px solid black">Método de Pago:</td>
+                        <td colspan="3" style="width:80%;border-bottom:1px solid black">@METODOPAGO</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" style="width:20%;border-bottom:1px solid black">Estado:</td>
+                        <td colspan="3" style="width:80%;border-bottom:1px solid black">@ESTADO</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" style="width:20%;border-bottom:1px solid black">Cantidad Pagada:</td>
+                        <td colspan="3" style="width:80%;border-bottom:1px solid black">@CANTIDADPAGADA</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" style="width:20%;border-bottom:1px solid black">Precio Total:</td>
+                        <td colspan="3" style="width:80%;border-bottom:1px solid black">@PRECIOTOTAL</td>
+                    </tr>
+                                        <tr>
+                        <td colspan="1" style="width:20%;border-bottom:1px solid black">Falta Pagar:</td>
+                        <td colspan="3" style="width:80%;border-bottom:1px solid black">@FALTAPAGAR</td>
+                    </tr>
+                </table>
+</body>
+</html>

@@ -223,35 +223,28 @@ namespace gestor_hotel
             showSubMenu(panSubmenuFacturas);
         }
 
-        private void btnCrearFacturas_Click(object sender, EventArgs e)
+        private void btnListarFacturas_Click(object sender, EventArgs e)
         {
             openChildForm(new FormFacturas(id_empleado));
             //Código
             hideSubMenu();
         }
 
-        private void btnListarFacturas_Click(object sender, EventArgs e)
+        private void btnPrepararFactura_Click(object sender, EventArgs e)
         {
-            openChildForm(new FormListarReservas());
             //Código
             hideSubMenu();
         }
 
-        private void btnEliminarFacturas_Click(object sender, EventArgs e)
+        private void btnCancelarFactura_Click(object sender, EventArgs e)
         {
-            //openChildForm(new FormEliminarReservas());
             //Código
             hideSubMenu();
         }
 
-        private void btnModificarFacturas_Click(object sender, EventArgs e)
-        {
-            //openChildForm(new FormModificarReservas());
-            //Código
-            hideSubMenu();
-        }
 
         #endregion
+
 
     }
 }

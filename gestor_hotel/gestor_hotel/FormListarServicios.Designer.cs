@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormListarServicios));
             this.btnContratarServicio = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.dgvServicios = new System.Windows.Forms.DataGridView();
@@ -99,7 +100,7 @@
             // 
             // btnCancelarServicio
             // 
-            this.btnCancelarServicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelarServicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelarServicio.BackColor = System.Drawing.Color.Red;
             this.btnCancelarServicio.FlatAppearance.BorderSize = 0;
             this.btnCancelarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -123,6 +124,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.dgvServicios);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormListarServicios";
             this.Text = "FormListarServicios";
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).EndInit();

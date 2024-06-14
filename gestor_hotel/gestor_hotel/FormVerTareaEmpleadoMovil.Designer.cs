@@ -28,10 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVerTareaEmpleadoMovil));
             this.panBarraTitulo = new System.Windows.Forms.Panel();
             this.imgMinimizar = new System.Windows.Forms.PictureBox();
             this.imgCerrar = new System.Windows.Forms.PictureBox();
             this.panContenedor = new System.Windows.Forms.Panel();
+            this.txtFechaCancelacion = new System.Windows.Forms.TextBox();
+            this.txtHecho = new System.Windows.Forms.TextBox();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.txtNumeroHabitacion = new System.Windows.Forms.TextBox();
+            this.txtIdHabitacion = new System.Windows.Forms.TextBox();
+            this.txtIdServicioDisponible = new System.Windows.Forms.TextBox();
+            this.txtIdServicioRealizado = new System.Windows.Forms.TextBox();
+            this.lblIdHabitacion = new System.Windows.Forms.Label();
             this.lblFechaCancelación = new System.Windows.Forms.Label();
             this.lblHecho = new System.Windows.Forms.Label();
             this.lblPrecio = new System.Windows.Forms.Label();
@@ -39,14 +48,6 @@
             this.lblIdServicioDisponible = new System.Windows.Forms.Label();
             this.btnRetroceder = new System.Windows.Forms.Button();
             this.lblIdServicioRealizado = new System.Windows.Forms.Label();
-            this.lblIdHabitacion = new System.Windows.Forms.Label();
-            this.txtIdServicioRealizado = new System.Windows.Forms.TextBox();
-            this.txtIdServicioDisponible = new System.Windows.Forms.TextBox();
-            this.txtIdHabitacion = new System.Windows.Forms.TextBox();
-            this.txtNumeroHabitacion = new System.Windows.Forms.TextBox();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.txtHecho = new System.Windows.Forms.TextBox();
-            this.txtFechaCancelacion = new System.Windows.Forms.TextBox();
             this.panBarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).BeginInit();
@@ -112,6 +113,79 @@
             this.panContenedor.Name = "panContenedor";
             this.panContenedor.Size = new System.Drawing.Size(480, 700);
             this.panContenedor.TabIndex = 14;
+            // 
+            // txtFechaCancelacion
+            // 
+            this.txtFechaCancelacion.Enabled = false;
+            this.txtFechaCancelacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFechaCancelacion.Location = new System.Drawing.Point(85, 546);
+            this.txtFechaCancelacion.Name = "txtFechaCancelacion";
+            this.txtFechaCancelacion.Size = new System.Drawing.Size(330, 34);
+            this.txtFechaCancelacion.TabIndex = 22;
+            // 
+            // txtHecho
+            // 
+            this.txtHecho.Enabled = false;
+            this.txtHecho.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHecho.Location = new System.Drawing.Point(82, 449);
+            this.txtHecho.Name = "txtHecho";
+            this.txtHecho.Size = new System.Drawing.Size(333, 34);
+            this.txtHecho.TabIndex = 21;
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.Enabled = false;
+            this.txtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio.Location = new System.Drawing.Point(283, 344);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(132, 34);
+            this.txtPrecio.TabIndex = 20;
+            // 
+            // txtNumeroHabitacion
+            // 
+            this.txtNumeroHabitacion.Enabled = false;
+            this.txtNumeroHabitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroHabitacion.Location = new System.Drawing.Point(295, 276);
+            this.txtNumeroHabitacion.Name = "txtNumeroHabitacion";
+            this.txtNumeroHabitacion.Size = new System.Drawing.Size(132, 34);
+            this.txtNumeroHabitacion.TabIndex = 19;
+            // 
+            // txtIdHabitacion
+            // 
+            this.txtIdHabitacion.Enabled = false;
+            this.txtIdHabitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdHabitacion.Location = new System.Drawing.Point(228, 215);
+            this.txtIdHabitacion.Name = "txtIdHabitacion";
+            this.txtIdHabitacion.Size = new System.Drawing.Size(132, 34);
+            this.txtIdHabitacion.TabIndex = 18;
+            // 
+            // txtIdServicioDisponible
+            // 
+            this.txtIdServicioDisponible.Enabled = false;
+            this.txtIdServicioDisponible.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdServicioDisponible.Location = new System.Drawing.Point(321, 147);
+            this.txtIdServicioDisponible.Name = "txtIdServicioDisponible";
+            this.txtIdServicioDisponible.Size = new System.Drawing.Size(132, 34);
+            this.txtIdServicioDisponible.TabIndex = 17;
+            // 
+            // txtIdServicioRealizado
+            // 
+            this.txtIdServicioRealizado.Enabled = false;
+            this.txtIdServicioRealizado.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdServicioRealizado.Location = new System.Drawing.Point(312, 78);
+            this.txtIdServicioRealizado.Name = "txtIdServicioRealizado";
+            this.txtIdServicioRealizado.Size = new System.Drawing.Size(132, 34);
+            this.txtIdServicioRealizado.TabIndex = 16;
+            // 
+            // lblIdHabitacion
+            // 
+            this.lblIdHabitacion.AutoSize = true;
+            this.lblIdHabitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdHabitacion.Location = new System.Drawing.Point(25, 215);
+            this.lblIdHabitacion.Name = "lblIdHabitacion";
+            this.lblIdHabitacion.Size = new System.Drawing.Size(173, 29);
+            this.lblIdHabitacion.TabIndex = 15;
+            this.lblIdHabitacion.Text = "Id Habitación:";
             // 
             // lblFechaCancelación
             // 
@@ -186,79 +260,6 @@
             this.lblIdServicioRealizado.TabIndex = 7;
             this.lblIdServicioRealizado.Text = "Id Servicio Realizado:";
             // 
-            // lblIdHabitacion
-            // 
-            this.lblIdHabitacion.AutoSize = true;
-            this.lblIdHabitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdHabitacion.Location = new System.Drawing.Point(25, 215);
-            this.lblIdHabitacion.Name = "lblIdHabitacion";
-            this.lblIdHabitacion.Size = new System.Drawing.Size(173, 29);
-            this.lblIdHabitacion.TabIndex = 15;
-            this.lblIdHabitacion.Text = "Id Habitación:";
-            // 
-            // txtIdServicioRealizado
-            // 
-            this.txtIdServicioRealizado.Enabled = false;
-            this.txtIdServicioRealizado.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdServicioRealizado.Location = new System.Drawing.Point(312, 78);
-            this.txtIdServicioRealizado.Name = "txtIdServicioRealizado";
-            this.txtIdServicioRealizado.Size = new System.Drawing.Size(132, 34);
-            this.txtIdServicioRealizado.TabIndex = 16;
-            // 
-            // txtIdServicioDisponible
-            // 
-            this.txtIdServicioDisponible.Enabled = false;
-            this.txtIdServicioDisponible.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdServicioDisponible.Location = new System.Drawing.Point(321, 147);
-            this.txtIdServicioDisponible.Name = "txtIdServicioDisponible";
-            this.txtIdServicioDisponible.Size = new System.Drawing.Size(132, 34);
-            this.txtIdServicioDisponible.TabIndex = 17;
-            // 
-            // txtIdHabitacion
-            // 
-            this.txtIdHabitacion.Enabled = false;
-            this.txtIdHabitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdHabitacion.Location = new System.Drawing.Point(228, 215);
-            this.txtIdHabitacion.Name = "txtIdHabitacion";
-            this.txtIdHabitacion.Size = new System.Drawing.Size(132, 34);
-            this.txtIdHabitacion.TabIndex = 18;
-            // 
-            // txtNumeroHabitacion
-            // 
-            this.txtNumeroHabitacion.Enabled = false;
-            this.txtNumeroHabitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroHabitacion.Location = new System.Drawing.Point(295, 276);
-            this.txtNumeroHabitacion.Name = "txtNumeroHabitacion";
-            this.txtNumeroHabitacion.Size = new System.Drawing.Size(132, 34);
-            this.txtNumeroHabitacion.TabIndex = 19;
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Enabled = false;
-            this.txtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecio.Location = new System.Drawing.Point(283, 344);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(132, 34);
-            this.txtPrecio.TabIndex = 20;
-            // 
-            // txtHecho
-            // 
-            this.txtHecho.Enabled = false;
-            this.txtHecho.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHecho.Location = new System.Drawing.Point(82, 449);
-            this.txtHecho.Name = "txtHecho";
-            this.txtHecho.Size = new System.Drawing.Size(333, 34);
-            this.txtHecho.TabIndex = 21;
-            // 
-            // txtFechaCancelacion
-            // 
-            this.txtFechaCancelacion.Enabled = false;
-            this.txtFechaCancelacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaCancelacion.Location = new System.Drawing.Point(85, 546);
-            this.txtFechaCancelacion.Name = "txtFechaCancelacion";
-            this.txtFechaCancelacion.Size = new System.Drawing.Size(330, 34);
-            this.txtFechaCancelacion.TabIndex = 22;
-            // 
             // FormVerTareaEmpleadoMovil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -268,6 +269,7 @@
             this.Controls.Add(this.panBarraTitulo);
             this.Controls.Add(this.panContenedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormVerTareaEmpleadoMovil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormVerTareaEmpleadoMovil";

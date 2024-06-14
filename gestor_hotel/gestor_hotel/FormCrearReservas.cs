@@ -89,7 +89,7 @@ namespace gestor_hotel
 
                             bool funciona = daoReservas.CrearReserva(idCliente, idHabitacion, fechaEntrada, fechaSalida, coste, idEmpleado, fechaReserva, fechaCancelacionReserva, observaciones);
                             // Cambiamos el estado de la habitación
-                            daoHabitaciones.ModificarEstadoHabitacion(idHabitacion, "ocupado");
+                            //daoHabitaciones.ModificarEstadoHabitacion(idHabitacion, "ocupado");
                             daoFacturas.CrearFacturaInicial(idCliente, coste);
                             if (funciona)
                                 limpiarDatos();

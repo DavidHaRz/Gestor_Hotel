@@ -48,7 +48,7 @@ namespace gestor_hotel.dao
             }
         }
 
-        // Método para cancelar un cliente (se pondrá la fecha actual en fechaCancelacionReserva
+        // Método para cancelar una reserva (se pondrá la fecha actual en fechaCancelacionReserva
         public void CancelarReserva(Reserva reserva)
         {
             try
@@ -131,6 +131,7 @@ namespace gestor_hotel.dao
             }
             return funciona;
         }
+        
         public bool ModificarReserva(int idReserva, int idCliente, int idHabitacion, DateTime fechaEntrada, DateTime fechaSalida, decimal coste, DateTime fechaReserva, string observaciones)
         {
             bool funciona = false;
@@ -170,6 +171,7 @@ namespace gestor_hotel.dao
             }
             return funciona;
         }
+       
         public bool EsReservaCancelada(int idReserva)
         {
             bool cancelada = false;
@@ -206,6 +208,7 @@ namespace gestor_hotel.dao
 
             return cancelada;
         }
+        
         public int ObtenerUltimoIdReserva()
         {
             int idReserva = 0;
@@ -243,6 +246,56 @@ namespace gestor_hotel.dao
             return idReserva;
         }
 
+        public Reserva ObtenerReservaPorId(int idReserva)
+        {
+            Reserva reserva = null;
+            string query = "SELECT * FROM reservas WHERE id_reserva = @idReserva";
 
+            Conexion objetoConexion = new Conexion();
+            MySqlConnection conexion = objetoConexion.establecerConexion();
+
+
+            try
+            {
+                MySqlCommand myCommand = new MySqlCommand(query, conexion);
+                myCommand.Parameters.AddWithValue("@idReserva", idReserva);
+
+                using (MySqlDataReader reader = myCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        int id = reader.GetInt32("id_reserva");
+                        int idCliente = reader.GetInt32("id_cliente");
+                        int idHabitacion = reader.GetInt32("id_habitacion");
+                        DateTime fechaEntrada = reader.GetDateTime("fecha_entrada");
+                        DateTime fechaSalida = reader.GetDateTime("fecha_salida");
+                        decimal coste = reader.GetDecimal("coste");
+                        int idEmpleado = reader.GetInt32("id_empleado");
+                        DateTime fechaReserva = reader.GetDateTime("fecha_reserva");
+                        DateTime? fechaCancelacionReserva = reader.IsDBNull(reader.GetOrdinal("fecha_cancelacion_reserva")) ? (DateTime?)null : reader.GetDateTime("fecha_cancelacion_reserva");
+                        string observaciones = reader.IsDBNull(reader.GetOrdinal("observaciones")) ? null : reader.GetString("observaciones");
+
+                        reserva = new Reserva(id, idCliente, idHabitacion, fechaEntrada, fechaSalida, coste, idEmpleado, fechaReserva, fechaCancelacionReserva, observaciones);
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error de MySQL al obtener la reserva: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener la obtener la reserva: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (conexion.State != ConnectionState.Closed)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return reserva;
+        }
     }
 }

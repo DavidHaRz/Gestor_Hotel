@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCrearClientes));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -183,8 +184,9 @@
             this.txtDireccionFacturacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDireccionFacturacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccionFacturacion.Location = new System.Drawing.Point(394, 447);
+            this.txtDireccionFacturacion.Multiline = true;
             this.txtDireccionFacturacion.Name = "txtDireccionFacturacion";
-            this.txtDireccionFacturacion.Size = new System.Drawing.Size(437, 38);
+            this.txtDireccionFacturacion.Size = new System.Drawing.Size(437, 99);
             this.txtDireccionFacturacion.TabIndex = 59;
             // 
             // lblObservaciones
@@ -233,6 +235,7 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCrearClientes";
             this.Text = "FormCrearClientes";
             this.ResumeLayout(false);

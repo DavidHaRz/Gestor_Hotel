@@ -15,22 +15,6 @@ namespace gestor_hotel.dto
         public decimal precio { get; set; }
         public string estado { get; set; }
 
-
-        ////Constructor con parámetros
-        public Habitacion(string numeroHabitacion, int numeroPersonas, decimal precio, string estado)
-        {
-            this.numeroHabitacion = numeroHabitacion;
-            this.numeroPersonas = numeroPersonas;
-            this.precio = precio;
-            this.estado = estado;
-        }
-
-        // Constructor para poder comprobar que la habitación existe
-        public Habitacion(int idHabitacion)
-        {
-            this.idHabitacion = idHabitacion;
-        }
-
         //Constructor con parámetros para poder modificar
         public Habitacion(int idHabitacion, string numeroHabitacion, int numeroPersonas, decimal precio, string estado)
         {
